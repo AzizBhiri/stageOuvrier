@@ -3,10 +3,12 @@ import os
 import pandas as pd
 import re
 import scrapy
-from scrapy.crawler import CrawlerProcess
+from scrapy.crawler import CrawlerRunner
+from twisted.internet import reactor
 from scrapy.linkextractors.lxmlhtml import LxmlLinkExtractor
 from googlesearch import search
 import ssl
+
 ssl._create_default_https_context = ssl._create_unverified_context
 logging.getLogger('scrapy').propagate = False
 
@@ -45,7 +47,6 @@ class MailSpider(scrapy.Spider):
         df.to_csv(self.path, mode='a', header=False)
 
 
-
 def ask_user(question):
     response = input(question + ' y/n' + '\n')
     if response == 'y':
@@ -75,9 +76,11 @@ def get_info(tag, n, language, path, reject=[]):
     google_urls = get_urls(tag, n, language)
 
     print('Searching for emails...')
-    process = CrawlerProcess({'USER_AGENT': 'Mozilla/5.0'})
-    process.crawl(MailSpider, start_urls=google_urls, path=path, reject=reject)
-    process.start()
+    runner = CrawlerRunner({'USER_AGENT': 'Mozilla/5.0'})
+    runner.crawl(MailSpider, start_urls=google_urls, path=path, reject=reject)
+    d = runner.join()
+    d.addBoth(lambda _: reactor.stop())
+    reactor.run()  
 
     print('Cleaning emails...')
     df = pd.read_csv(path, index_col=0)
@@ -89,8 +92,6 @@ def get_info(tag, n, language, path, reject=[]):
     return df
 
 
-bad_words = ['facebook', 'instagram', 'youtube', 'twitter', 'wiki']
-df = get_info('ingenieur data science intelligence arificielle machine learning tunisie', 5, 'fr',
-              'recrutement.csv', reject=bad_words)
+#bad_words = ['facebook', 'instagram', 'youtube', 'twitter', 'wiki']
 
-df.head()
+#df = get_info('stage ouvrier tunisie data science machine learning',5,'fr','test.csv',bad_words)
