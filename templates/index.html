@@ -8,8 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'styleIndex.css')}}">
     <title>Web App</title>
 </head>
-<body>
-    <canvas id="atoms"></canvas>
+<div class="form">
     <form action="/" method="POST">
         <div class="form-group">
             <label for="exampleFormControlInput1">Key Words</label>
@@ -39,6 +38,9 @@
         </div>
         <button class="btn btn-primary" type="submit">Get Contacts</button>
     </form>
+</div>
+<body>
+    <canvas id="atoms"></canvas>
     <script src="{{url_for('static', filename = 'app.js')}}"></script>
 </body>
 </html>
