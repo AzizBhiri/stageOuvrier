@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'styleIndex.css')}}">
     <title>Web App</title>
 </head>
-<div class="form">
-    <form action="/" method="POST">
+<body>
+    <form action="/" method="POST" style="margin: 20%;">
         <div class="form-group">
             <label for="exampleFormControlInput1">Key Words</label>
             <input type="text" name="keywords" class="form-control" id=" keywords" placeholder="">
@@ -36,11 +35,9 @@
                 <option>8</option>
             </select>
         </div>
-        <button class="btn btn-primary" type="submit">Get Contacts</button>
+        <button class="btn btn-primary" style="color: #000;background-color: #00adb5;border-color: #000;" type="submit">Get Contacts</button>
     </form>
-</div>
-<body>
-    <canvas id="atoms"></canvas>
+    <canvas style="z-index: -1;" id="atoms"></canvas>
     <script src="{{url_for('static', filename = 'app.js')}}"></script>
 </body>
 </html>
