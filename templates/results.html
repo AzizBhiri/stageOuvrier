@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename = 'styleResults.css')}}">
     <title>Web App</title>
 </head>
-<body>
+<body style="color:black">
     {% for table in tables %}
     {{ table|safe }}
     {% endfor %}

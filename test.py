@@ -38,7 +38,7 @@ class MailSpider(scrapy.Spider):
                 return
 
         html_text = str(response.text)
-        mail_list = re.findall('\w+@\w+\.{1}\w+', html_text)
+        mail_list = re.findall('\w+@\w+\.{1}\w{2,}', html_text)
 
         dic = {'email': mail_list, 'link': str(response.url)}
         df = pd.DataFrame(dic)
@@ -94,4 +94,4 @@ def get_info(tag, n, language, path, reject=[]):
 
 #bad_words = ['facebook', 'instagram', 'youtube', 'twitter', 'wiki']
 
-#df = get_info('stage ouvrier tunisie data science machine learning',5,'fr','test.csv',bad_words)
+#df = get_info('recrtement ingénieur mécanique tunisie',2,'fr','test.csv',bad_words)
