@@ -11,17 +11,6 @@ function atomsTracker() {
         coeff = 100;
     };
 
-    console.log(nbr, coeff);
-
-    let mouse = {
-        x: null, y: null, radius: (canvas.width / 150) * (canvas.height / 150)
-    };
-
-    window.addEventListener('mousemove', function (event) {
-        mouse.x = event.x;
-        mouse.y = event.y;
-    });
-
     class Particle {
         constructor(x, y, directionX, directionY, size, color) {
             this.x = x;
@@ -49,24 +38,6 @@ function atomsTracker() {
                 this.directionY = -this.directionY;
             }
 
-            //mouse interactivity
-            // let dx = mouse.x - this.x;
-            // let dy = mouse.y - this.y;
-            // let distance = Math.sqrt(dx * dx + dy * dy);
-            // if (distance < mouse.radius + this.size) {
-            //     if (mouse.x < this.x && this.x < canvas.width - this.size * 5) {
-            //         this.x += 5;
-            //     }
-            //     if (mouse.x > this.x && this.x > this.size * 5) {
-            //         this.x -= 5;
-            //     }
-            //     if (mouse.y < this.y && this.y < canvas.height - this.size * 5) {
-            //         this.y += 5;
-            //     }
-            //     if (mouse.y > this.y && this.y > this.size * 5) {
-            //         this.y -= 5;
-            //     }
-            // }
             this.x += this.directionX;
             this.y += this.directionY;
             this.draw();
@@ -120,11 +91,6 @@ function atomsTracker() {
     window.addEventListener('resize', function () {
         canvas.height = innerHeight;
         canvas.width = innerWidth;
-    })
-
-    window.addEventListener('mouseout', function () {
-        mouse.x = undefined;
-        mouse.y = undefined;
     })
 
     init();

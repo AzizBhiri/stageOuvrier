@@ -92,6 +92,5 @@ def get_info(tag, n, language, path, reject=[]):
     return df
 
 
-#bad_words = ['facebook', 'instagram', 'youtube', 'twitter', 'wiki']
-
-#df = get_info('recrtement ingénieur mécanique tunisie',2,'fr','test.csv',bad_words)
+# bad_words = ['facebook', 'instagram', 'youtube', 'twitter', 'wiki']
+# df = get_info('recrutement ingénieur développement Web Tunisie',2,'fr','test.csv',bad_words)

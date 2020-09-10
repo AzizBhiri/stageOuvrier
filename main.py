@@ -9,8 +9,8 @@ def webScraperInput():
         keywords = str(request.form['keywords'])
         language = str(request.form['language'])
         nbr = str(request.form['nbr'])
-        df = test.get_info(keywords, int(nbr), language, 'output.csv',
-                           ['facebook', 'instagram', 'youtube', 'twitter', 'wiki'])
+        bad_words = ['facebook', 'instagram', 'youtube', 'twitter', 'wiki']
+        df = test.get_info(keywords, int(nbr), language, 'output.csv', bad_words)
         return render_template('results.html', tables=[df.to_html(classes='data', header="true")])
     else: 
         return render_template('index.html')
@@ -18,3 +18,4 @@ def webScraperInput():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
