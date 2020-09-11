@@ -25,9 +25,6 @@ function atomsTracker() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
             ctx.fillStyle = 'rgba(255,255,255,1)';
-            ctx.fill();
-            ctx.strokeStyle = this.color;
-            ctx.stroke();
         }
 
         update() {
@@ -48,7 +45,6 @@ function atomsTracker() {
     function init() {
         particleArray = [];
         for (let i = 0; i < nbr / 1.5; i++) {
-            // let size = Math.random() * 10;
             let size = 1;
             let x = (Math.random() * ((innerWidth - size * 2) - size * 2)) + size * 2;
             let y = (Math.random() * ((innerHeight - size * 2) - size * 2)) + size * 2;
@@ -95,7 +91,6 @@ function atomsTracker() {
 
     init();
     animate();
-
 }
 
 atomsTracker();
