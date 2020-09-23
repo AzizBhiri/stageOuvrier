@@ -1,4 +1,4 @@
-1 - Compilez puis exécutez le fichier ‘main.py’ avec un compilateur python.
+1 - Compilez puis exécutez le fichier app.py’ avec un compilateur python.
 
 2 - Lancer votre navigateur Web (Chrome de préférence)
 
