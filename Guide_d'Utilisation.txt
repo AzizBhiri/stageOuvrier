@@ -1,0 +1,11 @@
+1 - Compilez puis exécutez le fichier ‘main.py’ avec un compilateur python.
+
+2 - Lancer votre navigateur Web (Chrome de préférence)
+
+3 - Accédez au localhost http://127.0.0.1:5000
+
+4 - Choisissez vos paramètres de recherche puis clichez sur le bouton ‘Get Contacts’
+
+5 - La recherche va prendre 20s à 60s selon le volume de ressources à examiner. Veuillez patienter.
+
+6 - Une fois la recherche est terminée avec succès, les e-mails obtenues seront organisés dans une table. 
